@@ -1,4 +1,4 @@
-import { Button } from '@mui/material'
+import { Button, FormControl, InputLabel, MenuItem, Select } from '@mui/material'
 import AccessAlarmIcon from '@mui/icons-material/AccessAlarm'
 import ThreeDRotation from '@mui/icons-material/ThreeDRotation'
 import { pink } from '@mui/material/colors'
@@ -10,6 +10,27 @@ function App() {
 
   const { mode, setMode } = useColorScheme()
 
+  function SelectSmall() {
+    const handleChange = (event) => {
+      setMode(event.target.value)
+    }
+    return (
+      <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
+        <InputLabel id="label-select-dark-light-mode">Mode</InputLabel>
+        <Select
+          labelId="label-select-dark-light-mode"
+          id="select-dark-light-mode"
+          value={mode}
+          label="Mode"
+          onChange={handleChange}
+        >
+          <MenuItem value='light'>Light</MenuItem>
+          <MenuItem value='dark'>Dark</MenuItem>
+          <MenuItem value='system'>System</MenuItem>
+        </Select>
+      </FormControl>
+    )
+  }
 
   function HomeIcon(props) {
     return (
@@ -31,6 +52,7 @@ function App() {
   }
   return (
     <>
+      <SelectSmall />
       <Typography variant="body2" color='text.secondary'>test </Typography>
       <Button variant="contained" color="success">Button</Button>
       <AccessAlarmIcon />
