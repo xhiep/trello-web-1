@@ -8,7 +8,7 @@ import { useColorScheme } from '@mui/material/styles'
 
 function App() {
 
-  const { mode, setMode } = useColorScheme();
+  const { mode, setMode } = useColorScheme()
 
   function SelectSmall() {
     const handleChange = (event) => {
